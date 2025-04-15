@@ -10,8 +10,6 @@ return new class extends Migration {
         Schema::create('ulasans', function (Blueprint $table) {
             $table->id();
             $table->foreignId('menu_id')->constrained('menus')->onDelete('cascade'); // Foreign key untuk menu
-            $table->string('name'); // Nama pelanggan
-            $table->integer('rating')->min(1)->max(5); // Rating dari 1-5
             $table->text('comment'); // Komentar ulasan
             $table->timestamps();
         });
