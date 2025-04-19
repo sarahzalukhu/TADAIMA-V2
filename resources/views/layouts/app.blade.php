@@ -6,6 +6,7 @@
     <title>Tadaima - Ramen and Coffee</title>
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    @stack('styles')
 </head>
 <body>
 
@@ -17,7 +18,14 @@
             <ul>
                 <li><a href="{{ route('home') }}">Beranda</a></li>
                 <li><a href="{{ route('about') }}">Tentang Kami</a></li>
-                <li><a href="{{ route('menu') }}">Menu</a></li>
+                <li class="dropdown">
+            <a href="#">Menu</a>
+            <ul class="dropdown-content">
+                <li><a href="{{ route('menu.makanan') }}">Makanan</a></li>
+                <li><a href="{{ route('menu.minuman') }}">Minuman</a></li>
+                <li><a href="{{ route('menu.cemilan') }}">Cemilan</a></li>
+            </ul>
+            </li>
                 <li><a href="{{ route('order') }}">Pemesanan</a></li>
                 <li><a href="{{ route('review') }}">Ulasan</a></li>
             </ul>
