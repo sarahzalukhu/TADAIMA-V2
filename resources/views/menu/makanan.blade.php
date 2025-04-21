@@ -70,7 +70,7 @@
                     : 'default.jpg';
             @endphp
             <div class="menu-card">
-                <img src="{{ asset('assets/images/' . $gambar) }}" alt="{{ $menu->nama }}">
+            <img src="{{ asset('assets/images/makanan/' . $menu->gambar) }}" alt="{{ $menu->nama }}">
                 <div class="menu-info">
                     <h3>{{ $menu->nama }}</h3>
                     <p>Rp {{ number_format($menu->harga, 0, ',', '.') }}</p>

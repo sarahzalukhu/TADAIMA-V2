@@ -4,21 +4,33 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration {
-    public function up(): void
+class CreateMenusTable extends Migration
+{
+    /**
+     * Jalankan migrasi untuk membuat tabel menus.
+     *
+     * @return void
+     */
+    public function up()
     {
         Schema::create('menus', function (Blueprint $table) {
-            $table->id(); // ID menu sebagai primary key
-            $table->foreignId('kategori_id')->constrained('kategoris')->onDelete('cascade'); // Foreign key untuk kategori
-            $table->string('name'); // Nama menu
-            $table->decimal('price', 10, 2); // Harga menu
-            $table->string('image')->nullable(); // Foto menu
-            $table->timestamps();
+            $table->id();  // Membuat kolom id dengan tipe auto increment
+            $table->string('nama');  // Kolom untuk nama menu
+            $table->text('deskripsi')->nullable();  // Kolom deskripsi menu (opsional)
+            $table->decimal('harga', 10, 2);  // Kolom harga menu dengan tipe decimal
+            $table->string('gambar');  // Kolom untuk nama file gambar
+            $table->timestamps();  // Kolom created_at dan updated_at
         });
     }
 
-    public function down(): void
+    /**
+     * Balikkan migrasi untuk menghapus tabel menus.
+     *
+     * @return void
+     */
+    public function down()
     {
         Schema::dropIfExists('menus');
     }
-};
+}
+ 

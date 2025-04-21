@@ -8,6 +8,13 @@ use Illuminate\Support\Facades\Storage;
 
 class MenuController extends Controller
 {
+    // Menampilkan halaman khusus makanan
+    public function makanan()
+    {
+        $menus = Menu::all();
+        return view('menu.makanan', compact('menus'));
+    }
+
     // Menampilkan daftar menu
     public function index()
     {
