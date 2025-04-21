@@ -9,7 +9,14 @@ class Kategori extends Model
 {
     use HasFactory;
 
-    protected $table = 'kategoris'; 
+    protected $table = 'kategoris';
 
-    protected $fillable = ['name']; 
+    protected $fillable = [
+        'name',
+    ];
+
+    public function menus()
+    {
+        return $this->hasMany(Menu::class, 'kategori_id');
+    }
 }

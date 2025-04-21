@@ -3,15 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Ulasan extends Model
+class Karyawan extends Model
 {
-    use HasFactory, SoftDeletes;
-    
-    protected $table = 'ulasans';
+    use HasFactory;
+
+    protected $table = 'karyawans';
 
     protected $guarded = [];
 }
-
