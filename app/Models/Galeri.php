@@ -7,9 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Galeri extends Model
 {
-   use HasFactory;
-   
-   protected $fillable = ['image'];
+    use HasFactory;
 
-   protected $guarded = [];
+    protected $fillable = ['image']; // Kolom yang bisa diisi
 }
