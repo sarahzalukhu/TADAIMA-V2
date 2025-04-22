@@ -3,26 +3,26 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
+use App\Models\Menu;
 
 class MenuSeeder extends Seeder
 {
     public function run(): void
     {
-        $data = [
-            // Menu Makanan
-            ['name' => 'Ramen Spesial', 'price' => 45000, 'kategori_id' => 1, 'image' => 'ramen.jpg'],
-            ['name' => 'Katsu Don', 'price' => 40000, 'kategori_id' => 1, 'image' => 'katsu_don.jpg'],
-
-            // Menu Minuman
-            ['name' => 'Matcha Latte', 'price' => 25000, 'kategori_id' => 2, 'image' => 'matcha_latte.jpg'],
-            ['name' => 'Ocha', 'price' => 15000, 'kategori_id' => 2, 'image' => 'ocha.jpg'],
-
-            // Menu Cemilan
-            ['name' => 'Takoyaki', 'price' => 30000, 'kategori_id' => 3, 'image' => 'takoyaki.jpg'],
-            ['name' => 'Edamame', 'price' => 20000, 'kategori_id' => 3, 'image' => 'edamame.jpg'],
+        $menus = [
+            ['nama' => 'Japanese Kare Ramen', 'harga' => 36000, 'gambar' => 'menu1.JPG'],
+            ['nama' => 'Chicken Katsu Dry Ramen', 'harga' => 28000, 'gambar' => 'menu2.JPG'],
+            ['nama' => 'Japanese Tori Paitan Ramen', 'harga' => 32000, 'gambar' => 'menu3.JPG'],
+            ['nama' => 'Kare Dry Ramen', 'harga' => 30000, 'gambar' => 'menu4.JPG'],
+            ['nama' => 'Black Pepper Beef Rice Bowl', 'harga' => 36000, 'gambar' => 'menu5.JPG'],
+            ['nama' => 'Karage Dry Ramen', 'harga' => 30000, 'gambar' => 'menu6.JPG'],
+            ['nama' => 'Doriyaki Rice', 'harga' => 36000, 'gambar' => 'menu7.JPG'],
+            ['nama' => 'Kampung Style Fried Rice', 'harga' => 35000, 'gambar' => 'menu8.JPG'],
+            ['nama' => 'Seafood Fried Rice', 'harga' => 35000, 'gambar' => 'menu9.JPG'],
         ];
 
-        DB::table('menus')->insert($data);
+        foreach ($menus as $menu) {
+            Menu::create($menu);
+        }
     }
 }

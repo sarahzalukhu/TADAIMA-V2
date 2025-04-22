@@ -10,20 +10,29 @@ Route::get('/tentang-kami', function () {
     return view('about');
 })->name('about');
 
-Route::get('/menu', function () {
-    return view('menu');
-})->name('menu');
+use App\Http\Controllers\MenuController;
+
+Route::get('/menu/makanan', [MenuController::class, 'makanan'])->name('menu.makanan');
+
+Route::get('/menu/minuman', function () {
+    return view('menu.minuman');
+})->name('menu.minuman');
+
+Route::get('/menu/cemilan', function () {
+    return view('menu.cemilan');
+})->name('menu.cemilan');
 
 Route::get('/pemesanan', function () {
     return view('order');
 })->name('order');
 
-Route::get('/ulasan', function () {
-    return view('review');
-})->name('review');
+use App\Http\Controllers\ReviewController;
 
-// Rute untuk memproses pemesanan
+Route::get('/ulasan', [ReviewController::class, 'index'])->name('review.index');
+Route::post('/ulasan', [ReviewController::class, 'store'])->name('review.store');
+
+
 Route::post('/pemesanan', function () {
-    // Proses pemesanan di sini
+
     return back()->with('success', 'Pesanan Anda telah dikirim!');
 })->name('order.process');
